@@ -38,7 +38,7 @@ pipeline{
 			environment name: 'ENVIRONMENT', value: 'prod'
 			}	
     }
-   }
+  
    post{
     always{
         echo "Always Run"
