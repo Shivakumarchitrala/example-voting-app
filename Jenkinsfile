@@ -2,7 +2,7 @@ pipeline{
    //agent any
    agent {label 'worker'}
    options{
-    buildDiscarder(logRotator(numToKeepStr: '15'))
+    buildDiscarder(logRotator(numToKeepStr: '5'))
     disableConcurrentBuilds()
     retry(2)
     timeout(time: 1, unit: 'MINUTES')
@@ -20,10 +20,10 @@ pipeline{
     stage('Build and Push'){
         steps{
             sh '''
-            aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 584716546011.dkr.ecr.us-east-1.amazonaws.com
+            aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 287353407661.dkr.ecr.us-east-1.amazonaws.com
             cd vote
-            docker build -t 584716546011.dkr.ecr.us-east-1.amazonaws.com/demo-c41:v${BUILD_NUMBER} .
-            docker push 584716546011.dkr.ecr.us-east-1.amazonaws.com/demo-c41:v${BUILD_NUMBER}
+            docker build -t 287353407661.dkr.ecr.us-east-1.amazonaws.com/shivanew-jenkins:v${BUILD_NUMBER} .
+            docker push 287353407661.dkr.ecr.us-east-1.amazonaws.com/shivanew-jenkins:v${BUILD_NUMBER}
             '''
         }
     }
