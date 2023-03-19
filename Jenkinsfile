@@ -35,7 +35,7 @@ pipeline{
    
     stage('Deploy to CXO'){
         when {
-			environment name: 'ENVIRONMENT', value: 'prod'
+			name: 'ENVIRONMENT', value: 'Prod'
 			}	
     }
    }
