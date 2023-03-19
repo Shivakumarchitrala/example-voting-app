@@ -33,6 +33,12 @@ pipeline{
         }
     }
    }
+    stage('Deploy to CXO'){
+        when {
+			environment name: 'ENVIRONMENT', value: 'prod'
+			}	
+    }
+   }
    post{
     always{
         echo "Always Run"
